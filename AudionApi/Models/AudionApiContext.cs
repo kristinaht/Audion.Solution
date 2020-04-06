@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace AudionApi.Models
 {
-  public class AudionApiContext : IdentityDbContext<User>
+  public class AudionApiContext : DbContext
   {
     public AudionApiContext(DbContextOptions<AudionApiContext> options)
       : base(options)
