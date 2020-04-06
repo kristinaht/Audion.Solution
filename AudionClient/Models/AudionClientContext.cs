@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AudionClient.Models
 {
-    public class AudionClientContext : DbContext
+    public class AudionClientContext : IdentityDbContext<ApplicationUser>
     {
       public AudionClientContext(DbContextOptions options) : base(options) { }
     }
