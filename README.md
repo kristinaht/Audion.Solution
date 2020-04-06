@@ -2,23 +2,19 @@
 
 #### _API for interacting with an MVC_
 
-#### By: **Alyssa Colistro**, April 2020
+#### By: **Alyssa Colistro, Kristina Hengster Tintor, Fatma Dogan, Jieun Kang Kristina Hengster Tintor, Fatma Dogan, Jieun Kang **, April 2020
 
 ## Description
 
-_This API allows users to GET, POST, PUT, and DELETE audio responses to questions about various travel destinations around the world._
+_This API allows users to GET, POST, PUT, and DELETE audio responses to random questions._
 
 ## Endpoint Documentation:
 
-http://localhost:5004/api/businesses/5
+http://localhost:5000/audion/ <br>
+http://localhost:5004/
 
 | Endpoint | Http Action | Return data |
 | ------------- |:-------------:| -------------------:|
-| /api/businesses  | GET | { "businessId": 1, "name": "Jane's Cafe", "manager": "Jane", "yearJoined": 2003, "certNumber": 123345, "latitude": 123.234556m, "longitude": 123.234556m, "phone": "123-345-4567", "email": "jane@cafe.com", "ada": true } |
-| /api/businesses  | POST | new Business in database: { "businessId": 2, "name": "Macy's Tavern", "manager": "Macy", "yearJoined": 2008, "certNumber": 123678, "latitude": 123.234556m, "longitude": 123.234556m, "phone": "503-345-4567", "email": "macy@tavern.com", "ada": false } |
-| /api/businesses/2 | PUT | update Business 2 in database: { "businessId": 2, "name": "Jane's Cafe and Bar", "manager": "Jane", "yearJoined": 2003, "certNumber": 123345, "latitude": 123.234556m, "longitude": 123.234556m, "phone": "123-345-4567", "email": "jane@cafeandbar.com", "ada": true } |
-| /api/businesses/2 | DELETE | remove Business with id 2 from database |
-|
 
 
 
@@ -85,28 +81,23 @@ _Add the MySQL environment variable to the System PATH. Instructions for Windows
 _Enter the following commands in Terminal (macOS) or PowerShell (Windows):_
 * ``cd desktop``
 * ``git clone`` followed by the URL to this repository
-* ``cd LocalBusinessAPI2.Solution/TravelBlog``
+* ``cd Audion.Solution`` 
 
-_Confirm that you have navigated to the TravelBlog directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
+_Confirm that you have navigated to the Audion.Solution directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
 
-## Clone the TravelBlogAPI repository and run the TravelBlogAPI
 
-_Enter the following commands in Terminal (macOS) or PowerShell (Windows):_
-* ``cd ~``
-* ``cd desktop``
-* ``git clone https://github.com/acolistro/LocalBusinessAPI2.Solution``
-* ``cd LocalBusinessAPI2.Solution/TravelBlog``
-* ``dotnet restore``
-* ``dotnet build``
-* ``dotnet ef database update``
-* ``dotnet run`` or ``dotnet watch run``
+## Run this API application in another Terminal or PowerShell window
+_Run this API by entering the following command in Terminal (macOS) or PowerShell (Windows) at the root of the AudionApi directory:_
+  * ``cd AudionApi ``
+  * ``dotnet run`` or ``dotnet watch run``
 
 ## Run this MVC application in another Terminal or PowerShell window
 
-_Run this MVC application by entering the following command in Terminal (macOS) or PowerShell (Windows) at the root of the LocalBusinessAPI2 directory:_
+_Run this MVC application by entering the following command in Terminal (macOS) or PowerShell (Windows) at the root of the AudionClient directory:_
+* ``cd AudionClient ``
 * ``dotnet run`` or ``dotnet watch run``
 
-_To view/edit the source code of this application, open the contents of the LocalBusinessAPI2.Solution directory in a text editor or IDE of your choice (e.g., to open all contents of the directory in Visual Studio Code on macOS, enter the command_ ``code .`` _in Terminal at the root of the TravelBlogMVC.Solution directory)._
+_To view/edit the source code of this application, open the contents of the LocalBusinessAPI2.Solution directory in a text editor or IDE of your choice (e.g., to open all contents of the directory in Visual Studio Code on macOS, enter the command_ ``code .`` _in Terminal at the root of the Audion.Solution directory)._
 
 ## Technologies Used
 
@@ -119,10 +110,10 @@ _To view/edit the source code of this application, open the contents of the Loca
 * Entity Framework Core 2.2
 * RestSharp version 106.6.10
 * Newtonsoft.Json version 12.0.2
-* [Travel API version 1.0](https://github.com/acolistro/LocalBusinessAPI2.Solution)
+* [Audion API version 1.0](https://github.com/kristinaht/Audion.Solution.git)
 
 ## License
 
 Licensed under the MIT license.
 
-&copy; 2020 - Mariam Alaeddin, Alyssa Colistro, Alex Skreen, Todd Walraven
+&copy; 2020 - Alyssa Colistro, Kristina Hengster Tintor, Fatma Dogan, Jieun Kang
