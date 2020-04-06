@@ -2,7 +2,7 @@
 
 #### _API for interacting with an MVC_
 
-#### By: **Alyssa Colistro, Kristina Hengster Tintor, Fatma Dogan, Jieun Kang Kristina Hengster Tintor, Fatma Dogan, Jieun Kang **, April 2020
+#### By: **Alyssa Colistro, Kristina Hengster Tintor, Fatma Dogan, Jieun Kang**, April 2020
 
 ## Description
 
