@@ -18,10 +18,29 @@ namespace AudionApi.Controllers
     }
 
     // GET api/questions
+    // [HttpGet]
+    // public ActionResult<IEnumerable<Question>> Get()
+    // {
+    //   return _db.Questions.ToList();
+    // }
+
     [HttpGet]
-    public ActionResult<IEnumerable<Question>> Get()
+    public ActionResult<IEnumerable<Question>> Get(int questionId, string text)
     {
-      return _db.Questions.ToList();
+      var query = _db.Questions.AsQueryable();
+
+      if (questionId != 0)
+      {
+        query = query.Where(entry => entry.QuestionId == questionId);
+      }
+
+
+      if (text != null)
+      {
+        query = query.Where(entry => entry.Text.Contains(text));
+      }
+      
+      return query.ToList();
     }
 
     [HttpGet("{id}")]
