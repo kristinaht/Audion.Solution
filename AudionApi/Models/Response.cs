@@ -12,6 +12,6 @@ namespace AudionApi.Models
     public string Text {get; set;}
 
     public Question Question {get; set;}
-    public ApplicationUser User {get; set;}
+    public User User {get; set;}
   }
 }
