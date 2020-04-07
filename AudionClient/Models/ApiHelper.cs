@@ -7,51 +7,81 @@ namespace AudionClient.Models
   {
     public static async Task<string> GetAllResponses()
     {
-      RestClient client = new RestClient("http://localhost:5000/api/responses");
+      RestClient client = new RestClient("http://localhost:5000/api");
       RestRequest request = new RestRequest($"responses", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
     public static async Task<string> GetAllQuestions()
     {
-      RestClient client = new RestClient("http://localhost:5000/api/questions");
+      RestClient client = new RestClient("http://localhost:5000/api");
       RestRequest request = new RestRequest($"questions", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
-    // public static async Task<string> Get(int id)
-    // {
-    //   RestClient client = new RestClient("http://localhost:5000/api");
-    //   RestRequest request = new RestRequest($"reviews/{id}", Method.GET);
-    //   var response = await client.ExecuteTaskAsync(request);
-    //   return response.Content;
-    // }
+    public static async Task<string> GetResponse(int id)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"responses/{id}", Method.GET);
+      var response = await client.ExecuteTaskAsync(request);
+      return response.Content;
+    }
+    public static async Task<string> GetQuestion(int id)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"questions/{id}", Method.GET);
+      var response = await client.ExecuteTaskAsync(request);
+      return response.Content;
+    }
 
-    // public static async Task Post(string newReview)
-    // {
-    //   RestClient client = new RestClient("http://localhost:5000/api");
-    //   RestRequest request = new RestRequest($"reviews", Method.POST);
-    //   request.AddHeader("Content-Type", "application/json");
-    //   request.AddJsonBody(newReview);
-    //   var response = await client.ExecuteTaskAsync(request);
-    // }
+    public static async Task PostResponse(string newResponse)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"responses", Method.POST);
+      request.AddHeader("Content-Type", "application/json");
+      request.AddJsonBody(newResponse);
+      var response = await client.ExecuteTaskAsync(request);
+    }
+    public static async Task PostQuestion(string newQuestion)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"questions", Method.POST);
+      request.AddHeader("Content-Type", "application/json");
+      request.AddJsonBody(newQuestion);
+      var response = await client.ExecuteTaskAsync(request);
+    }
 
-    // public static async Task Put(int id, string newReview)
-    // {
-    //   RestClient client = new RestClient("http://localhost:5000/api");
-    //   RestRequest request = new RestRequest($"reviews/{id}", Method.PUT);
-    //   request.AddHeader("Content-Type", "application/json");
-    //   request.AddJsonBody(newReview);
-    //   var response = await client.ExecuteTaskAsync(request);
-    // }
+    public static async Task PutResponse(int id, string newResponse)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"responses/{id}", Method.PUT);
+      request.AddHeader("Content-Type", "application/json");
+      request.AddJsonBody(newResponse);
+      var response = await client.ExecuteTaskAsync(request);
+    }
+    public static async Task PutQuestion(int id, string newQuestion)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"questions/{id}", Method.PUT);
+      request.AddHeader("Content-Type", "application/json");
+      request.AddJsonBody(newQuestion);
+      var response = await client.ExecuteTaskAsync(request);
+    }
 
-    // public static async Task Delete(int id)
-    // {
-    //   RestClient client = new RestClient("http://localhost:5000/api");
-    //   RestRequest request = new RestRequest($"reviews/{id}", Method.DELETE);
-    //   request.AddHeader("Content-Type", "application/json");
-    //   var response = await client.ExecuteTaskAsync(request);
-    // }
+    public static async Task DeleteResponse(int id)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"responses/{id}", Method.DELETE);
+      request.AddHeader("Content-Type", "application/json");
+      var response = await client.ExecuteTaskAsync(request);
+    }
+    public static async Task DeleteQuestion(int id)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"questions/{id}", Method.DELETE);
+      request.AddHeader("Content-Type", "application/json");
+      var response = await client.ExecuteTaskAsync(request);
+    }
 
     // public static async Task<string> GetRandom()
     // {
