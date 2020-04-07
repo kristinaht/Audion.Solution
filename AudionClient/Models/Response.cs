@@ -16,9 +16,9 @@ namespace AudionClient.Models
     public Question Question {get; set;}
     // public ApplicationUser User {get; set;}
 
-    public static List<Response> GetAll()
+    public static List<Response> GetAllResponses()
     { 
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = ApiHelper.GetAllResponses();
       var result = apiCallTask.Result;
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
       List<Response> responseList = JsonConvert.DeserializeObject<List<Response>>(jsonResponse.ToString());
