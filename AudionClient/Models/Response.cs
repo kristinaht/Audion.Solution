@@ -26,6 +26,35 @@ namespace AudionClient.Models
       return responseList;
     }
 
+    public static Response GetDetails(int id)
+    {
+      var apiCallTask = ApiHelper.GetResponse(id);
+      var result = apiCallTask.Result;
+
+      JObject jsonResponse =JsonConvert.DeserializeObject<JObject>(result);
+      Response response = JsonConvert.DeserializeObject<Response>(jsonResponse.ToString());
+
+      return response;
+    }
+
+    public static void PostResponse(Response response)
+    {
+      string jsonResponse = JsonConvert.SerializeObject(response);
+      var apiCallTask = ApiHelper.PostResponse(jsonResponse);
+    }
+
+    public static void Put(Response response)
+    {
+      string jsonResponse = JsonConvert.SerializeObject(response);
+      var apiCallTask = ApiHelper.PutResponse(response.ResponseId, jsonResponse);
+    }
+
+    public static void Delete(int id)
+    {
+      var apiCallTask = ApiHelper.DeleteResponse(id);
+    }
+    
+
 
 
   }
