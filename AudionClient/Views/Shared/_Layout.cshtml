@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AudionClient</title>
+    <title>@ViewData["Title"] - Audion</title>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="~/css/styles.css">
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -36,6 +38,18 @@
                         </li>
                     </ul>
                 </div>
+                @if(User.Identity.IsAuthenticated)
+                {
+                <p>Logged in as <strong>@User.Identity.Name</strong></p>
+                @using (Html.BeginForm("LogOff", "Account"))
+                {
+                    <input type="submit" class="btn btn-outline-danger btn-sm" value="Log out" />
+                }
+                }
+                else
+                {
+                @Html.ActionLink("Log in", "Login", "Account", null, new { @class = "btn btn-success"})
+                }
             </div>
         </nav>
     </header>
