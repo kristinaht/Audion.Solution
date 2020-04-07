@@ -53,9 +53,5 @@ namespace AudionClient.Models
     {
       var apiCallTask = ApiHelper.DeleteResponse(id);
     }
-    
-
-
-
   }
 }
