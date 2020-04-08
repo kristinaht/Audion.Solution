@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AudionClient.Models.Question
+
+<h4>Add a new Question</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Text)
+    @Html.TextBoxFor(model => model.Text)
+
+    <input type="submit" value="Add new Question" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all Questions", "Index")</p>

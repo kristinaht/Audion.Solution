@@ -5,10 +5,17 @@
 <div class="text-center">
     <h1 class="display-4">Welcome To Questions App</h1>
     <h3>Please log in:</h3>
+@{
+  Layout = "_Layout";
+}
+
+
+ 
+<p>@Html.ActionLink("Login to Your Account", "Index", "Login")</p> 
 
 <p>@Html.ActionLink("Create an account", "Index", "Account")</p>
 </div>
 
  @* for testing *@
 <p>@Html.ActionLink("See all responses", "Index", "Responses")</p>
-<p>@Html.ActionLink("See all question", "Index", "Questions")</p>
+<p>@Html.ActionLink("See Today's Question", "Index", "Questions")</p>

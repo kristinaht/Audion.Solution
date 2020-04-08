@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AudionClient.Models.Question
+
+<h2>Edit</h2>
+
+<h4>Edit this Question: @Html.DisplayFor(model => model.Text)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.QuestionId)
+
+    @Html.LabelFor(model => model.Text)
+    @Html.EditorFor(model => model.Text)
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

@@ -34,7 +34,7 @@ namespace AudionApi.Controllers
       return query.ToList();
     }
 
-    // GET api/Responses/5
+    // GET api/responses/5
     [HttpGet("{id}")]
     public ActionResult<Response> Get(int questionId, int id)
     {
@@ -42,7 +42,7 @@ namespace AudionApi.Controllers
       return thisResponse;
     }
 
-    // POST api/Responses
+    // POST api/responses
     [HttpPost]
     public void Post(int questionId, [FromBody] Response response)
     {
@@ -52,7 +52,7 @@ namespace AudionApi.Controllers
       _db.SaveChanges();
     }
 
-    // PUT api/Responses/5
+    // PUT api/responses/5
     [HttpPut("{id}")]
     public void Put(int id, int questionId, [FromBody] Response response)
     {
@@ -63,7 +63,7 @@ namespace AudionApi.Controllers
       _db.SaveChanges();
     }
 
-    // DELETE api/values/5
+    // DELETE api/responses/5
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
@@ -72,24 +72,14 @@ namespace AudionApi.Controllers
       _db.SaveChanges();
     }
 
-
-    // public ActionResult Index()
-    // {
-    //   return View();
-    // }
-    
-    // public ActionResult Create()
-    // {
-    //   ViewBag.QuestionId = new SelectList(_db.Questions, "QuestionId", "Location");
-    //   return View();
-    // }
-
-    // [HttpPost]
-    // public ActionResult Create(Response response)
-    // {
-    //   _db.Responses.Add(response);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    // GET /api/responses/random
+    [HttpGet("random")]
+    public ActionResult<Response> Random ()
+    {
+      List<Response> response = _db.Responses.ToList();
+      var rnd = new Random();
+      int rndIdx = rnd.Next(0, response.Count);
+      return response[rndIdx];
+    }
   }
 }
