@@ -6,7 +6,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
-namespace AudionClient.Models
+namespace AudionClient.Controllers
 {
   public class QuestionsController : Controller
   {
@@ -16,6 +16,8 @@ namespace AudionClient.Models
     {
       var allQuestions = Question.GetRandom();
       return View(allQuestions);
+      // var response = Question.GetRandom();
+      // return View("Index");
     }
 
     //[Authorize(Roles = Role.Admin)]

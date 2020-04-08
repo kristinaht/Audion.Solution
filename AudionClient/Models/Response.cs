@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AudionClient.Models
 {
-  public class Response
+  public class UserResponse
   {
     public int ResponseId { get; set; }
     public DateTime Timestamp { get; set; }
@@ -16,34 +16,44 @@ namespace AudionClient.Models
     public int QuestionId { get; set; }
     public ApplicationUser User {get; set;}
 
-    public static List<Response> GetAllResponses()
+    public static List<UserResponse> GetAllResponses()
     { 
       var apiCallTask = ApiHelper.GetAllResponses();
       var result = apiCallTask.Result;
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-      List<Response> responseList = JsonConvert.DeserializeObject<List<Response>>(jsonResponse.ToString());
+      List<UserResponse> responseList = JsonConvert.DeserializeObject<List<UserResponse>>(jsonResponse.ToString());
 
       return responseList;
     }
+    public static UserResponse GetRandom()
+    {
+      var apiCallTask = ApiHelper.GetRandomResponse();
+      var result = apiCallTask.Result;
 
-    public static Response GetDetails(int id)
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      UserResponse response = JsonConvert.DeserializeObject<UserResponse>(jsonResponse.ToString());
+
+      return response;
+    }
+
+    public static UserResponse GetDetails(int id)
     {
       var apiCallTask = ApiHelper.GetResponse(id);
       var result = apiCallTask.Result;
 
       JObject jsonResponse =JsonConvert.DeserializeObject<JObject>(result);
-      Response response = JsonConvert.DeserializeObject<Response>(jsonResponse.ToString());
+      UserResponse response = JsonConvert.DeserializeObject<UserResponse>(jsonResponse.ToString());
 
       return response;
     }
 
-    public static void PostResponse(Response response)
+    public static void PostResponse(UserResponse response)
     {
       string jsonResponse = JsonConvert.SerializeObject(response);
       var apiCallTask = ApiHelper.PostResponse(jsonResponse);
     }
 
-    public static void Put(Response response)
+    public static void Put(UserResponse response)
     {
       string jsonResponse = JsonConvert.SerializeObject(response);
       var apiCallTask = ApiHelper.PutResponse(response.ResponseId, jsonResponse);
@@ -53,5 +63,7 @@ namespace AudionClient.Models
     {
       var apiCallTask = ApiHelper.DeleteResponse(id);
     }
+
+    
   }
 }
