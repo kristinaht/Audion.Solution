@@ -3,6 +3,7 @@ using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace AudionClient.Models
 {
@@ -12,6 +13,7 @@ namespace AudionClient.Models
     public DateTime Timestamp { get; set; }
     // public byte[] AudioFile { get; set; }
     public string Text {get; set;}
+    public byte[] recsound { get; set; }
 
     public Question Question {get; set;}
     // public ApplicationUser User {get; set;}
@@ -53,5 +55,24 @@ namespace AudionClient.Models
     {
       var apiCallTask = ApiHelper.DeleteResponse(id);
     }
+
+    [DllImport("winmm.dll",EntryPoint="mciSendStringA", ExactSpelling=true, CharSet=CharSet.Ansi, SetLastError=true)]
+     
+     private static extern int record(string lpstrCommand, string lpstrReturnString, int uReturnLength, int hwndCallback);
+
+    public void Button1_Click(System.Object sender, System.EventArgs e)
+    {
+      record("open new Type waveaudio Alias recsound", "", 0, 0);
+  
+      record("record recsound", "", 0, 0);
+    }
+      
+    public void Button2_Click(System.Object sender, System.EventArgs e)
+      {
+      record("save recsound c:\\mic.wav", "", 0, 0);
+  
+      record("close recsound", "", 0, 0);
+    }
+
   }
 }
