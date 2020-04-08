@@ -6,7 +6,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
-namespace AudionClient.Models
+namespace AudionClient.Controllers
 {
   public class QuestionsController : Controller
   {
