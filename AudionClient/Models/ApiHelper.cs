@@ -20,10 +20,10 @@ namespace AudionClient.Models
       return response.Content;
     }
 
-    public static async Task<string> GetResponse(int id)
+    public static async Task<string> GetResponse(int responseId, int questionId)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
-      RestRequest request = new RestRequest($"responses/{id}", Method.GET);
+      RestRequest request = new RestRequest($"questions/{questionId}/responses/{responseId}", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
@@ -35,10 +35,10 @@ namespace AudionClient.Models
       return response.Content;
     }
 
-    public static async Task PostResponse(string newResponse)
+    public static async Task PostResponse(int questionId, string newResponse)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
-      RestRequest request = new RestRequest($"responses", Method.POST);
+      RestRequest request = new RestRequest($"questions/{questionId}/responses", Method.POST);
       request.AddHeader("Content-Type", "application/json");
       request.AddJsonBody(newResponse);
       var response = await client.ExecuteTaskAsync(request);

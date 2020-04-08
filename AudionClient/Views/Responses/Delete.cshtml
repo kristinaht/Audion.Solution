@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AudionClient.Models.UserResponse
+
+<h2>Are you sure you want to delete this Response?</h2>
+
+@Html.DisplayNameFor(model => model.Text): @Html.DisplayFor(model => model.Text)
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+@Html.ActionLink("Back to Responses", "Index")

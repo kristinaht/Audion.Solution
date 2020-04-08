@@ -1,0 +1,58 @@
+@{
+  Layout = "_Layout";
+}
+@using System
+@model AudionClient.Models.UserResponse
+
+<h4>Add a new Response</h4>
+
+@using (Html.BeginForm())
+{
+  <div class ="jumbotron">
+    @Html.HiddenFor(model => model.Timestamp, new { @Value=System.DateTime.Now })
+    
+    @* @Html.LabelFor(model => model.Text) *@
+    <label>Response</label>
+    @Html.TextAreaFor(model => model.Text, new {@class = "text"})
+    </div>
+
+    @Html.LabelFor(model => model.Age)
+    <label>Under 25</label>
+    @Html.RadioButtonFor(model => model.Age, 1)
+    <label>Between 25 and 50</label>
+    @Html.RadioButtonFor(model => model.Age, 2)
+    <label>Over 50</label>
+    @Html.RadioButtonFor(model => model.Age, 3)
+
+    @Html.LabelFor(model => model.Gender)
+    @Html.TextBoxFor(model => model.Gender)
+
+    @Html.LabelFor(model => model.Region)
+    @* @Html.TextBoxFor(model => model.Region, new { @value="Southeast"}) *@
+    @* @Html.LabelFor(model => model.Region, "Northwest") *@
+    <label>Northwest</label>
+    @Html.RadioButtonFor(model => model.Region, "Northwest")
+    <label>Northeast</label>
+    @Html.RadioButtonFor(model => model.Region, "NorthEast")
+    <label>Southwest</label>
+    @Html.RadioButtonFor(model => model.Region, "Southwest")
+    <label>Southeast</label>
+    @Html.RadioButtonFor(model => model.Region, "Southeast")
+
+
+    @Html.LabelFor(model => model.Ethnicity)
+    @Html.TextBoxFor(model => model.Ethnicity)
+    <br>
+    @Html.LabelFor(model => model.Parent)
+    <label for="yes">Yes</label>
+    @Html.RadioButtonFor(model => model.Parent,"Yes", true)
+    <label for="no">No</label>
+    @Html.RadioButtonFor(model => model.Parent,"No", false)
+
+    @Html.HiddenFor(model => model.QuestionId)
+
+
+    <input type="submit" value="Add new Response" class="btn btn-default" />
+}
+@* <p>@Html.ActionLink("Show all Questions", "Index")</p> *@
+

@@ -40,9 +40,9 @@ namespace AudionClient.Models
       return response;
     }
 
-    public static UserResponse GetDetails(int id)
+    public static UserResponse GetDetails(int responseId, int questionId)
     {
-      var apiCallTask = ApiHelper.GetResponse(id);
+      var apiCallTask = ApiHelper.GetResponse(responseId, questionId);
       var result = apiCallTask.Result;
 
       JObject jsonResponse =JsonConvert.DeserializeObject<JObject>(result);
@@ -51,10 +51,10 @@ namespace AudionClient.Models
       return response;
     }
 
-    public static void PostResponse(UserResponse response)
+    public static void PostResponse(int questionId, UserResponse response)
     {
       string jsonResponse = JsonConvert.SerializeObject(response);
-      var apiCallTask = ApiHelper.PostResponse(jsonResponse);
+      var apiCallTask = ApiHelper.PostResponse(questionId,jsonResponse);
     }
 
     public static void Put(UserResponse response)

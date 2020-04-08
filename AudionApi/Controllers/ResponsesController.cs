@@ -22,7 +22,7 @@ namespace AudionApi.Controllers
 
     // GET /api/responses
     [HttpGet]
-    public ActionResult<ICollection<Response>> Get(int questionId)
+    public ActionResult<ICollection<Response>> Get(int questionId, string text, int age, string gender, string region, string ethnicity, bool parent)
     {
       var query = _db.Responses.AsQueryable();
 
@@ -30,6 +30,34 @@ namespace AudionApi.Controllers
       {
         query = query.Where(entry => entry.QuestionId == questionId);
       }
+
+      if (text != null)
+      {
+        query = query.Where(entry => entry.Text.Contains(text));
+      }
+
+
+
+      if (age != 0)
+      {
+        query = query.Where(entry => entry.Age == age);
+      }
+
+      if (gender != null)
+      {
+        query = query.Where(entry => entry.Gender.Contains(gender));
+      }
+
+      if (region != null)
+      {
+        query = query.Where(entry => entry.Region == region);
+      }
+
+      if (ethnicity != null)
+      {
+        query = query.Where(entry => entry.Ethnicity.Contains(ethnicity));
+      }
+
 
       return query.ToList();
     }
