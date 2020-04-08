@@ -11,9 +11,9 @@ namespace AudionApi.Models
     [Required]
     public ICollection<Response> Responses {get; set;}
     
-    // public Question()
-    // {
-    //   this.Responses = new HashSet<Response>();
-    // }
+    public Question()
+    {
+      this.Responses = new HashSet<Response>();
+    }
   }
 }

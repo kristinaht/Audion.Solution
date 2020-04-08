@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,7 @@ namespace AudionApi.Controllers
     //   return _db.Questions.ToList();
     // }
 
+    //GET /api/questions
     [HttpGet]
     public ActionResult<IEnumerable<Question>> Get(int questionId, string text)
     {
@@ -43,13 +45,16 @@ namespace AudionApi.Controllers
       return query.ToList();
     }
 
+    //GET /api/questions/5
     [HttpGet("{id}")]
     public ActionResult<Question> Get(int id)
     {
-      return _db.Questions.FirstOrDefault(entry => entry.QuestionId == id);
+      var thisQuestion = _db.Questions.FirstOrDefault(entry => entry.QuestionId == id);
+      thisQuestion.Responses = _db.Responses.Where(Response => Response.QuestionId == id).ToList();
+      return thisQuestion;
     }
 
-    // POST api/questions
+    // POST /api/questions
     [HttpPost]
     public void Post([FromBody] Question question)
     {
@@ -57,7 +62,7 @@ namespace AudionApi.Controllers
       _db.SaveChanges();
     }
 
-        // PUT api/animals/5
+    // PUT /api/questions/5
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] Question question)
     {
@@ -66,13 +71,23 @@ namespace AudionApi.Controllers
       _db.SaveChanges();
     }
 
-    // DELETE api/questions/5
+    // DELETE /api/questions/5
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
       var questionToDelete = _db.Questions.FirstOrDefault(entry => entry.QuestionId == id);
       _db.Questions.Remove(questionToDelete);
       _db.SaveChanges();
+    }
+
+    // GET /api/questions/random
+    [HttpGet("random")]
+    public ActionResult<Question> Random ()
+    {
+      List<Question> questions = _db.Questions.ToList();
+      var rnd = new Random();
+      int rndIdx = rnd.Next(0, questions.Count);
+      return questions[rndIdx];
     }
   }
 }

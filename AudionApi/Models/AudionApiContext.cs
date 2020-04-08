@@ -48,11 +48,15 @@ namespace AudionApi.Models
               new Question { QuestionId = 29, Text = "What’s the one thing that people always misunderstand about you?" },
               new Question { QuestionId = 30, Text = "What did your past relationship teach you?" }
           );
-    }
 
-    // protected override void OnModelCreating(ModelBuilder builder)(ModelBuilder builder)
-    // {
-      
-    // }
+      builder.Entity<Response>()
+          .HasData(
+              new Response { ResponseId = 1, Text = "Test Response of Question 2", QuestionId = 2 },
+              new Response { ResponseId = 2, Text = "Test Response of Question 5", QuestionId = 5 },
+              new Response { ResponseId = 3, Text = "Test Response of Question 5", QuestionId = 5 },
+              new Response { ResponseId = 4, Text = "Test Response of Question 3", QuestionId = 3 },
+              new Response { ResponseId = 5, Text = "Test Response of Question 6", QuestionId = 6 }
+          );    
+    }    
   }
 }

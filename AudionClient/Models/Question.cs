@@ -10,6 +10,7 @@ namespace AudionClient.Models
   {
     public int QuestionId {get; set;}
     public string Text {get; set;}
+    public ApplicationUser User {get; set;}
     public ICollection<Response> Responses {get; set;}
     
     public Question()
@@ -28,16 +29,16 @@ namespace AudionClient.Models
       return questionList;
     }
 
-    // public static List<Review> Search(string country, string city, string destination)
-    // {
-    //   var apiCallTask = ApiHelper.Search(country, city, destination);
-    //   var result = apiCallTask.Result;
+    public static Question GetRandom()
+    {
+      var apiCallTask = ApiHelper.GetRandomQuestion();
+      var result = apiCallTask.Result;
 
-    //   JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-    //   List<Review> reviewList = JsonConvert.DeserializeObject<List<Review>>(jsonResponse.ToString());
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Question question = JsonConvert.DeserializeObject<Question>(jsonResponse.ToString());
 
-    //   return reviewList;
-    // }
+      return question;
+    }
 
     public static Question GetDetails(int id)
     {
@@ -65,6 +66,17 @@ namespace AudionClient.Models
     public static void Delete(int id)
     {
       var apiCallTask = ApiHelper.DeleteQuestion(id);
+    }
+
+    public static List<Question> Search(string searchStr)
+    {
+      var apiCallTask = ApiHelper.Search(searchStr);
+      var result = apiCallTask.Result;
+
+      JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
+      List<Question> questionList = JsonConvert.DeserializeObject<List<Question>>(jsonResponse.ToString());
+
+      return questionList;
     }
   }
 }
