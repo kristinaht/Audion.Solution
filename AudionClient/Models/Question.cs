@@ -10,11 +10,11 @@ namespace AudionClient.Models
   {
     public int QuestionId {get; set;}
     public string Text {get; set;}
-    public ICollection<Response> Responses {get; set;}
+    public ICollection<UserResponse> Responses {get; set;}
     
     public Question()
     {
-      this.Responses = new HashSet<Response>();
+      this.Responses = new HashSet<UserResponse>();
     }
 
     public static List<Question> GetAll()
@@ -26,6 +26,16 @@ namespace AudionClient.Models
       List<Question> questionList = JsonConvert.DeserializeObject<List<Question>>(jsonResponse.ToString());
 
       return questionList;
+    }
+    public static Question GetRandom()
+    {
+      var apiCallTask = ApiHelper.GetRandomQuestion();
+      var result = apiCallTask.Result;
+
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Question question = JsonConvert.DeserializeObject<Question>(jsonResponse.ToString());
+
+      return question;
     }
 
     // public static List<Review> Search(string country, string city, string destination)

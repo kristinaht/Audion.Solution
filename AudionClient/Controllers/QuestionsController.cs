@@ -14,6 +14,8 @@ namespace AudionClient.Controllers
     {
       var allQuestions = Question.GetAll();
       return View(allQuestions);
+      // var response = Question.GetRandom();
+      // return View("Index");
     }
     [HttpPost]
     public IActionResult Index(Question question)

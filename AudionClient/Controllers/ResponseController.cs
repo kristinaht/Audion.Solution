@@ -44,6 +44,12 @@ namespace AudionClient.Controllers
       UserResponse.Delete(id);
       return RedirectToAction("Index");
     }
+
+    public IActionResult Random()
+    {
+      var response = UserResponse.GetRandom();
+      return View(response);
+    }
     
 
   }

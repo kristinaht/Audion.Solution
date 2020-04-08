@@ -1,5 +1,14 @@
 @{
-  ViewData["Title"] = "Home Page";
+  Layout = "_Layout";
 }
 
-<h1>Get your question of the day!</h1>
+@using AudionClient.Models;
+
+
+
+@foreach (Question question in Model)
+{
+  <ul>
+    <li>Text: @question.Text</li>
+  </ul>
+}
