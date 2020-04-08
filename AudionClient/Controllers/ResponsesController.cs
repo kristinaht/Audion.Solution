@@ -40,10 +40,10 @@ namespace AudionClient.Controllers
       return View(thisResponse);
     }    
     [HttpPost]
-    public IActionResult Details(int id, UserResponse response)
+    public IActionResult Details(int id, int questionId, UserResponse response)
     {
       response.ResponseId = id;
-      UserResponse.Put(response);
+      UserResponse.Put(id, questionId, response);
       return RedirectToAction("Details", id);
     }
 

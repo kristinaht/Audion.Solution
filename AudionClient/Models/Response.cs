@@ -57,10 +57,10 @@ namespace AudionClient.Models
       var apiCallTask = ApiHelper.PostResponse(questionId,jsonResponse);
     }
 
-    public static void Put(UserResponse response)
+    public static void Put(int responseId, int questionId, UserResponse response)
     {
       string jsonResponse = JsonConvert.SerializeObject(response);
-      var apiCallTask = ApiHelper.PutResponse(response.ResponseId, jsonResponse);
+      var apiCallTask = ApiHelper.PutResponse(questionId, response.ResponseId, jsonResponse);
     }
 
     public static void Delete(int id)

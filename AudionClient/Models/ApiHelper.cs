@@ -52,10 +52,10 @@ namespace AudionClient.Models
       var response = await client.ExecuteTaskAsync(request);
     }
 
-    public static async Task PutResponse(int id, string newResponse)
+    public static async Task PutResponse(int questionId, int responseId, string newResponse)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
-      RestRequest request = new RestRequest($"responses/{id}", Method.PUT);
+      RestRequest request = new RestRequest($"questions/{questionId}/responses/{responseId}", Method.PUT);
       request.AddHeader("Content-Type", "application/json");
       request.AddJsonBody(newResponse);
       var response = await client.ExecuteTaskAsync(request);

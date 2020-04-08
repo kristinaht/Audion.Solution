@@ -39,9 +39,9 @@ namespace AudionClient.Models
       return question;
     }
 
-    public static Question GetDetails(int id)
+    public static Question GetDetails(int questionId)
     {
-      var apiCallTask = ApiHelper.GetQuestion(id);
+      var apiCallTask = ApiHelper.GetQuestion(questionId);
       var result = apiCallTask.Result;
 
       JObject jsonResponse =JsonConvert.DeserializeObject<JObject>(result);
