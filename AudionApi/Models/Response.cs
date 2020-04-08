@@ -10,8 +10,5 @@ namespace AudionApi.Models
     public string Text {get; set;}
 
     public int QuestionId { get; set; }
-
-    // public Question Question {get; set;}
-    // public ApplicationUser User {get; set;}
   }
 }
