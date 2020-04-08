@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@using AudionClient.Models;
+
+@using System.Security.Claims;
+@model IEnumerable<AudionClient.Models.Response>;
+
+
+<h1> Responses </h1> @*random responses go on this page*@
+
+@foreach (Response response in Model)
+{
+  <ul>
+  </ul>
+}
