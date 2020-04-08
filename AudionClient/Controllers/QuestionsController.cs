@@ -10,13 +10,17 @@ namespace AudionClient.Controllers
 {
   public class QuestionsController : Controller
   {
+    [Authorize]
+    [AllowAnonymous]
      public IActionResult Index()
     {
-      var allQuestions = Question.GetAll();
+      var allQuestions = Question.GetRandom();
       return View(allQuestions);
       // var response = Question.GetRandom();
       // return View("Index");
     }
+
+    //[Authorize(Roles = Role.Admin)]
     [HttpPost]
     public IActionResult Index(Question question)
     {
@@ -30,11 +34,13 @@ namespace AudionClient.Controllers
       return View(question);
     }
 
+    //[Authorize(Roles = Role.Admin)]
     public IActionResult Edit(int id)
     {
       var question = Question.GetDetails(id);
       return View(question);
     }
+
     [HttpPost]
     public IActionResult Edit(int id, Question question)
     {
@@ -51,12 +57,17 @@ namespace AudionClient.Controllers
       return RedirectToAction("Details", id);
     }
 
+    //[Authorize(Roles = Role.Admin)]
     public IActionResult Delete(int id)
     {
       Question.Delete(id);
       return RedirectToAction("Index");
     }
-    
-  }
 
+    public IActionResult Search(string searchStr)
+    {
+      var searchResults = Question.Search(searchStr);
+      return View("Index", searchResults);
+    }
+  }
 }

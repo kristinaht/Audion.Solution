@@ -19,6 +19,7 @@ namespace AudionClient.Models
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
+
     public static async Task<string> GetResponse(int id)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
@@ -94,6 +95,13 @@ namespace AudionClient.Models
     {
       RestClient client = new RestClient("http://localhost:5000/api");
       RestRequest request = new RestRequest($"questions/random", Method.GET);
+      var response = await client.ExecuteTaskAsync(request);
+      return response.Content;
+    }
+    public static async Task<string> Search(string searchStr)
+    {
+      RestClient client = new RestClient("http://localhost:5004/api");
+      RestRequest request = new RestRequest($"questions?text={searchStr}", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
