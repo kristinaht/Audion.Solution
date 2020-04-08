@@ -9,7 +9,9 @@ namespace AudionApi.Models
     public byte[] AudioFile { get; set; }
     public string Text {get; set;}
 
-    public Question Question {get; set;}
+    public int QuestionId { get; set; }
+
+    // public Question Question {get; set;}
     // public ApplicationUser User {get; set;}
   }
 }

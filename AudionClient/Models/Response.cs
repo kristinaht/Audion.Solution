@@ -10,7 +10,7 @@ namespace AudionClient.Models
   {
     public int ResponseId { get; set; }
     public DateTime Timestamp { get; set; }
-    public byte[] AudioFile { get; set; }
+    // public byte[] AudioFile { get; set; }
     public string Text {get; set;}
 
     public Question Question {get; set;}
