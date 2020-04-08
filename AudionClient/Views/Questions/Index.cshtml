@@ -2,22 +2,19 @@
   Layout = "_Layout";
 }
 @using AudionClient.Models
-@model AudionClient.Models.Question;
-@* @using System.Security.Claims
-@model IEnumerable<AudionClient.Models.Question> *@
+@* @model AudionClient.Models.Question; *@
+@using System.Security.Claims
+@model IEnumerable<AudionClient.Models.Question>
 
-
+@* <div class="jumbotron">
 <h3>@Html.DisplayFor(model => model.Text)</h3>
+</div> *@
+
 @* <p>@Model.Text</p> *@
 
-@* <p>Question: @Model.Text</p> *@
-@* @foreach (Question question in Model)
-{
-  <ul>
-    <li>Text: @question.Text</li>
-  </ul>
-} *@
-@* 
+@* <p>@Html.ActionLink("Add your response", "Create", "Responses")</p> *@
+
+<p>Questions:</p>
 @if (Model.Any())
 {
   <ul>
@@ -34,4 +31,4 @@ else
 
 <p>@Html.ActionLink("Add new Question", "Create")</p>
 
-<p>@Html.ActionLink("Home", "Index", "Home")</p> *@
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

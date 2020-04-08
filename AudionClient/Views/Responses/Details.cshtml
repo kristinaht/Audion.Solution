@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AudionClient.Models.UserResponse;
+
+<h2>Response Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Text): @Html.DisplayFor(model => model.Text)</h3>
+
+<p>@Html.ActionLink("Back to Responses", "Index")</p>
+<p>@Html.ActionLink("Edit Response", "Edit", new { id = Model.ResponseId })</p>
+<p>@Html.ActionLink("Delete Response", "Delete", new { id = Model.ResponseId })</p>

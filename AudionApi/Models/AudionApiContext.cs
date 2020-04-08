@@ -18,6 +18,7 @@ namespace AudionApi.Models
     {
       builder.Entity<Question>()
           .HasData(
+              new Question { QuestionId = 1, Text = "What’s one thing you wish you knew how to do?"},
               new Question { QuestionId = 2, Text = "What is something that you would change about yourself spiritually or emotionally?" },
               new Question { QuestionId = 3, Text = "What’s been your biggest mistake so far in life and what did you learn from it?" },
               new Question { QuestionId = 4, Text = "Which parent are you closer to and why?"},
@@ -51,11 +52,16 @@ namespace AudionApi.Models
 
       builder.Entity<Response>()
           .HasData(
-              new Response { ResponseId = 1, Text = "Test Response of Question 2", QuestionId = 2 },
-              new Response { ResponseId = 2, Text = "Test Response of Question 5", QuestionId = 5 },
-              new Response { ResponseId = 3, Text = "Test Response of Question 5", QuestionId = 5 },
-              new Response { ResponseId = 4, Text = "Test Response of Question 3", QuestionId = 3 },
-              new Response { ResponseId = 5, Text = "Test Response of Question 6", QuestionId = 6 }
+              new Response { ResponseId = 1, Text = "Test Response of Question 2", Age = 1, Gender = "Male", Region = "Northwest", Ethnicity = "White", Parent = true, QuestionId = 2 },
+              new Response { ResponseId = 2, Text = "Test Response of Question 5", Age = 2, Gender = "Male", Region = "Southwest", Ethnicity = "Black", Parent = true, QuestionId = 5 },
+              new Response { ResponseId = 3, Text = "Test Response of Question 5", Age = 2, Gender = "Female", Region = "Northwest", Ethnicity = "Latino", Parent = true, QuestionId = 5 },
+              new Response { ResponseId = 4, Text = "Test Response of Question 3", Age = 2, Gender = "Female", Region = "Southwest", Ethnicity = "Latino", Parent = false, QuestionId = 3 },
+              new Response { ResponseId = 5, Text = "Test Response of Question 3", Age = 2, Gender = "Female", Region = "Southwest", Ethnicity = "White", Parent = true, QuestionId = 3 },
+              new Response { ResponseId = 6, Text = "Test Response of Question 3", Age = 1, Gender = "Male", Region = "Southeast", Ethnicity = "Black", Parent = true, QuestionId = 3 },
+              new Response { ResponseId = 7, Text = "Test Response of Question 6", Age = 3, Gender = "Female", Region = "Southwest", Ethnicity = "Latino", Parent = true, QuestionId = 6 },
+              new Response { ResponseId = 8, Text = "Test Response of Question 6", Age = 2, Gender = "Female", Region = "Northwest", Ethnicity = "Asian", Parent = true, QuestionId = 6 },
+              new Response { ResponseId = 9, Text = "Test Response of Question 6", Age = 3, Gender = "Female", Region = "Southeast", Ethnicity = "Latino", Parent = true, QuestionId = 6 }
+              
           );    
     }    
   }

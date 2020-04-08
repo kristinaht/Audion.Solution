@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
 
-
 namespace AudionClient.Controllers
 {
   public class ResponsesController : Controller
@@ -17,20 +16,29 @@ namespace AudionClient.Controllers
       var allResponses = UserResponse.GetAllResponses();
       return View(allResponses);
     }
+
     [HttpPost]
-    public IActionResult Index(UserResponse response)
+    public IActionResult Index(int questionId, UserResponse response)
     {
-      UserResponse.PostResponse(response);
+      UserResponse.PostResponse(questionId, response);
       return RedirectToAction("Index");
     }
-
-    public IActionResult Details(int id)
+     public IActionResult Create()
     {
-      var response = UserResponse.GetDetails(id);
-      return View(response);
+      return View();
+    }
+    [HttpPost]
+    public IActionResult Create(int questionId, UserResponse response)
+    {
+      UserResponse.PostResponse(questionId, response);
+      return RedirectToAction("Details", "Questions", new {id = questionId});
     }
 
-
+    public IActionResult Details(int responseId, int questionId)
+    {
+      var thisResponse = UserResponse.GetDetails(responseId, questionId);
+      return View(thisResponse);
+    }    
     [HttpPost]
     public IActionResult Details(int id, UserResponse response)
     {

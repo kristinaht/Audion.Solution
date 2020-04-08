@@ -20,3 +20,42 @@ span:before{
 .btn {
   margin-right: 15px;
 }
+
+
+body {
+  background-color: rgb(157, 209, 187);
+  background-image: linear-gradient(to bottom left, rgba(157, 209, 187,1), rgba(199, 227, 206,1) 50% );
+  /* background-color: rgb(157, 209, 187);
+  background-image: linear-gradient(90deg, rgba(157, 209, 187,1) 0%, rgba(199, 227, 206,1) 50%, rgba(252,176,69,1) 100%); */
+}
+
+
+h1, h2, h3 {
+  text-align: center;
+  /* font-family: 'Fredoka One', cursive; */
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+  color: #FFA630;
+}
+
+
+
+
+
+.text {
+  /* background-color: green;
+  width: 500px;
+  font-family: 'Fredoka One', cursive;
+  color: white; */
+  width: 600px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-image: url(bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}

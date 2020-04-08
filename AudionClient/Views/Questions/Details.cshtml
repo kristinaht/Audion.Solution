@@ -10,23 +10,23 @@
 
 @if(@Model.Responses.Count == 0)
 {
-  <p>This Question does not belong to any Flavors</p>
+  <p>This Question does not have any Responses</p>
 }
 else
 {
-  <h4>This Recipe's Flavors:</h4>
+  <h4>This Question's Responses:</h4>
   <ul>
   @foreach(var join in Model.Responses)
   {
-    <li>@Model.Text</li>
-    @using (Html.BeginForm("DeleteFlavor", "Treats"))
+    <li>@join.Text</li>
+    @using (Html.BeginForm("DeleteResponse", "Questions"))
     {
       <input type="submit" value="Delete"/>
     }
   }
   </ul>
 }
-
+<p>@Html.ActionLink("Add your response", "Create", "Responses")</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Question", "Edit", new { id = Model.QuestionId })</p>
 <p>@Html.ActionLink("Delete Question", "Delete", new { id = Model.QuestionId })</p>
