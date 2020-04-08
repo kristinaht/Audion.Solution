@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AudionClient.Models.Question
+
+<h2>Question Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Text): @Html.DisplayFor(model => model.Text)</h3>
+
+@if(@Model.Responses.Count == 0)
+{
+  <p>This Question does not belong to any Flavors</p>
+}
+else
+{
+  <h4>This Recipe's Flavors:</h4>
+  <ul>
+  @foreach(var join in Model.Responses)
+  {
+    <li>@Model.Text</li>
+    @using (Html.BeginForm("DeleteFlavor", "Treats"))
+    {
+      <input type="submit" value="Delete"/>
+    }
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Question", "Edit", new { id = Model.QuestionId })</p>
+<p>@Html.ActionLink("Delete Question", "Delete", new { id = Model.QuestionId })</p>

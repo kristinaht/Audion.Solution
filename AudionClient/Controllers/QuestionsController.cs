@@ -14,10 +14,10 @@ namespace AudionClient.Controllers
     [AllowAnonymous]
      public IActionResult Index()
     {
-      var allQuestions = Question.GetRandom();
-      return View(allQuestions);
-      // var response = Question.GetRandom();
-      // return View("Index");
+      // var allquestions = Question.GetAll();
+      // return View(allquestions);
+      var thisQuestion = Question.GetRandom();
+      return View(thisQuestion);
     }
 
     //[Authorize(Roles = Role.Admin)]

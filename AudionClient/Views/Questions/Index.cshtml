@@ -1,14 +1,37 @@
 @{
   Layout = "_Layout";
 }
+@using AudionClient.Models
+@model AudionClient.Models.Question;
+@* @using System.Security.Claims
+@model IEnumerable<AudionClient.Models.Question> *@
 
-@using AudionClient.Models;
 
+<h3>@Html.DisplayFor(model => model.Text)</h3>
+@* <p>@Model.Text</p> *@
 
-
-@foreach (Question question in Model)
+@* <p>Question: @Model.Text</p> *@
+@* @foreach (Question question in Model)
 {
   <ul>
     <li>Text: @question.Text</li>
   </ul>
+} *@
+@* 
+@if (Model.Any())
+{
+  <ul>
+    @foreach (Question question in Model)
+    {
+      <li>@Html.ActionLink($"{question.Text}", "Details", new { id = question.QuestionId })</li>
+    }
+  </ul>
+} 
+else
+{
+  <h3>No Questions have been added yet!</h3>
 }
+
+<p>@Html.ActionLink("Add new Question", "Create")</p>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p> *@
