@@ -46,10 +46,6 @@ h1 {
 
 
 .text {
-  /* background-color: green;
-  width: 500px;
-  
-  color: white; */
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -64,4 +60,12 @@ h1 {
   font-family: 'Fredoka One', cursive;
   font-size: 18px;
   color:  hsl(194, 45%, 34%);
+}
+
+form {
+  color: hsl(194, 45%, 34%);
+}
+
+.label {
+  font-weight: bolder;
 }
