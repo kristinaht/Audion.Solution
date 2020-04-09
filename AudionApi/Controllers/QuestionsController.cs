@@ -18,13 +18,6 @@ namespace AudionApi.Controllers
       _db = db;
     }
 
-    // GET api/questions
-    // [HttpGet]
-    // public ActionResult<IEnumerable<Question>> Get()
-    // {
-    //   return _db.Questions.ToList();
-    // }
-
     //GET /api/questions
     [HttpGet]
     public ActionResult<IEnumerable<Question>> Get(int questionId, string text)
@@ -35,7 +28,6 @@ namespace AudionApi.Controllers
       {
         query = query.Where(entry => entry.QuestionId == questionId);
       }
-
 
       if (text != null)
       {

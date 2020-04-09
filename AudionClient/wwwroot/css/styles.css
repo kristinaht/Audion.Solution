@@ -34,12 +34,20 @@ h1, h2, h3 {
   text-align: center;
   /* font-family: 'Fredoka One', cursive; */
   font-family: 'Roboto', sans-serif;
+  /* color: #7397a7; */
+  color: #5c7681;
 }
 
 h1 {
   font-weight: 900;
-  color: #FFA630;
+  /* color: #FFA630; */
+  /* color: #00303F */
+  /* color: #d8ab4e; */
+  /* color: #8cbcd0; */
+
 }
+
+
 
 
 
@@ -68,4 +76,12 @@ form {
 
 .label {
   font-weight: bolder;
+}
+
+.card {
+  margin: 0 auto; 
+  float: none; 
+  margin-bottom: 10px; 
+  /* width: 700px; */
+  padding: 30px;
 }
