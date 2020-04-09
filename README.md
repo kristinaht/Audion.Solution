@@ -6,7 +6,7 @@
 
 ## Description
 
-_This custom API allows users to GET, POST, PUT, and DELETE audio responses to random questions. This MVC works together with the API to allow users to access questoins and answer them, as well as view the responses of others, to connect people and promote communication_
+_This custom API allows users to GET, POST, PUT, and DELETE text responses to random questions. This MVC works together with the API to allow users to access questoins and answer them, as well as view the responses of others, to connect people and promote communication_
 
 ## Endpoint Documentation:
 

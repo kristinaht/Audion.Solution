@@ -12,13 +12,13 @@
 {
   @using (Html.BeginForm("LogOff", "Account"))
   {
-    <input type="submit" class="btn btn-outline-danger" value="Log out" />
-    @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-outline-danger"})
+    <input type="submit" class="btn btn-outline-danger" value="Log out" id="logoffButton"/>
+    @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-outline-danger "})
   }
 }
 else
 {
-  @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-outline-danger"})
-  @Html.ActionLink("Log in", "Login", "Account", null, new { @class = "btn btn-outline-danger"})
+  @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-outline-danger",  id="registerButton"})
+  @Html.ActionLink("Log in", "Login", "Account", null, new { @class = "btn btn-outline-danger",  id="loginButton"})
 }
 

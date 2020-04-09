@@ -11,7 +11,6 @@
 <br>
 <br>
 <div id="question-box" class="card" style="width:800px;">
-  <img scr='~/img.logo.jpg'>
   <h3>@Html.DisplayFor(model => model.Text)</h3>
   <p style="text-align:center;">@Html.ActionLink("Add your response", "Create", "Responses", new { questionId = Model.QuestionId },new {@class="btn btn-danger"})</p>
 </div>  
