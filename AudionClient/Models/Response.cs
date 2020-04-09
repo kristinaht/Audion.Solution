@@ -63,9 +63,9 @@ namespace AudionClient.Models
       var apiCallTask = ApiHelper.PutResponse(questionId, response.ResponseId, jsonResponse);
     }
 
-    public static void Delete(int id)
+    public static void Delete(int responseId, int questionId)
     {
-      var apiCallTask = ApiHelper.DeleteResponse(id);
+      var apiCallTask = ApiHelper.DeleteResponse(responseId, questionId);
     }
 
     
