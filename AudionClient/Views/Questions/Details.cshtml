@@ -17,10 +17,11 @@ else
 {
   <h4>This Question's Responses:</h4>
   <ul>
-  @foreach(var join in Model.Responses)
+  @foreach(UserResponse response in Model.Responses)
   {
-    <li>@join.Text</li>
-    <p>@Html.ActionLink("Delete Response", "Delete", "Responses")</p>
+    <li>@response.Text</li>
+    @* <h4> @Html.ActionLink($"{@response.Text}", "Details", "Responses", new { questionId = Model.QuestionId, responseId = response.ResponseId})</h4> *@
+    <p>@Html.ActionLink("Delete Response", "Delete", "Responses", new { responseId = response.ResponseId, questionId = Model.QuestionId })</p>
   }
   </ul>
 }

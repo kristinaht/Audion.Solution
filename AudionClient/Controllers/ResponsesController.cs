@@ -35,46 +35,28 @@ namespace AudionClient.Controllers
       return RedirectToAction("Details", "Questions", new {id = questionId});
     }
 
-    public IActionResult Details(int responseId, int questionId)
+    public IActionResult Details(int questionId, int responseId)
     {
-      var thisResponse = UserResponse.GetDetails(responseId, questionId);
+      ViewBag.questionId = questionId;
+      var thisResponse = UserResponse.GetDetails(questionId, responseId);
       return View(thisResponse);
     }    
     [HttpPost]
-    public IActionResult Details(int id, int questionId, UserResponse response)
+    public IActionResult Details(int responseId, int questionId, UserResponse response)
     {
-      response.ResponseId = id;
-      UserResponse.Put(id, questionId, response);
-      return RedirectToAction("Details", id);
+      response.ResponseId = responseId;
+      UserResponse.Put(responseId, questionId, response);
+      return RedirectToAction("Details", responseId);
     }
 
+   
     public IActionResult Delete(int responseId, int questionId)
     {
-      var thisResponse = UserResponse.GetDetails(responseId, questionId);
-      return View(thisResponse);
+      UserResponse.Delete(responseId);
+      return RedirectToAction("Details", "Questions", new {id = questionId});
     }
 
-    [HttpPost, ActionName("Delete")]
-    public ActionResult DeleteConfirmed(int responseId, int questionId)
-    {
-      UserResponse.Delete(responseId, questionId);
-      return RedirectToAction("Details", "Question", new {id = questionId});
-    }
-
-    //  public ActionResult Delete(int id)
-    // {
-    //   var thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
-    //   return View(thisClient);
-    // }
-
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   var thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
-    //   _db.Clients.Remove(thisClient);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index", "Stylists");
-    // }
+   
 
     public IActionResult Random()
     {
