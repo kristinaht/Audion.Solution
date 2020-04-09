@@ -17,8 +17,7 @@
 @foreach (UserResponse response in Model)
 {
   <ul>
-    <li>@response.Timestamp</li>
-    <li>Text: @response.Text</li>
+    <li>@Html.ActionLink($"{@response.Text}", "Details", "Responses", new { responseId = response.ResponseId})</li>
   </ul>
 }
 

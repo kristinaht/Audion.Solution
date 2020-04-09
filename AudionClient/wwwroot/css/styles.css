@@ -26,7 +26,7 @@ h1, h2, h3 {
   /* font-family: 'Fredoka One', cursive; */
   font-family: 'Roboto', sans-serif;
   /* color: #7397a7; */
-  color: #5c7681;
+  color: #4c5d64;
 }
 
 h1 {
@@ -59,6 +59,10 @@ form {
   color: hsl(194, 45%, 34%);
 }
 
+footer {
+  text-align: center;
+}
+
 .label {
   font-weight: bolder;
 }
@@ -74,4 +78,21 @@ form {
   background-image: url('../img/quesis.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#registerButton {
+  margin-left: 30vw;
+}
+
+#logButton {
+  margin-left: 0vw;
+}
+
+#logoffButton {
+  margin-left: 28vw;
+}
+
+#logoImg {
+  width: 50px;
+  height: auto;
 }
