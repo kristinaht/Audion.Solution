@@ -40,7 +40,7 @@ namespace AudionClient.Models
       return response;
     }
 
-    public static UserResponse GetDetails(int responseId, int questionId)
+    public static UserResponse GetDetails(int responseId, int questionId )
     {
       var apiCallTask = ApiHelper.GetResponse(responseId, questionId);
       var result = apiCallTask.Result;
@@ -63,9 +63,9 @@ namespace AudionClient.Models
       var apiCallTask = ApiHelper.PutResponse(questionId, response.ResponseId, jsonResponse);
     }
 
-    public static void Delete(int responseId, int questionId)
+    public static void Delete(int responseId)
     {
-      var apiCallTask = ApiHelper.DeleteResponse(responseId, questionId);
+      var apiCallTask = ApiHelper.DeleteResponse(responseId);
     }
 
     

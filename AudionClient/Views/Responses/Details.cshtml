@@ -10,4 +10,5 @@
 
 <p>@Html.ActionLink("Back to Responses", "Index")</p>
 <p>@Html.ActionLink("Edit Response", "Edit", new { id = Model.ResponseId })</p>
-<p>@Html.ActionLink("Delete Response", "Delete", new { id = Model.ResponseId })</p>
+
+@Html.ActionLink("Delete Response", "Delete", "Responses", new {questionId = Model.QuestionId, responseId = Model.ResponseId}, new {@class="btn btn-danger"})

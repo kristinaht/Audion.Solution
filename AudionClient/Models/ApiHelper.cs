@@ -20,7 +20,7 @@ namespace AudionClient.Models
       return response.Content;
     }
 
-    public static async Task<string> GetResponse(int responseId, int questionId)
+    public static async Task<string> GetResponse( int questionId, int responseId)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
       RestRequest request = new RestRequest($"questions/{questionId}/responses/{responseId}", Method.GET);
@@ -69,10 +69,10 @@ namespace AudionClient.Models
       var response = await client.ExecuteTaskAsync(request);
     }
 
-    public static async Task DeleteResponse(int questionId, int responseId)
+    public static async Task DeleteResponse( int responseId)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
-      RestRequest request = new RestRequest($"questions/{questionId}/responses/{responseId}", Method.DELETE);
+      RestRequest request = new RestRequest($"responses/{responseId}", Method.DELETE);
       request.AddHeader("Content-Type", "application/json");
       var response = await client.ExecuteTaskAsync(request);
     }
