@@ -48,11 +48,33 @@ namespace AudionClient.Controllers
       return RedirectToAction("Details", id);
     }
 
-    public IActionResult Delete(int id)
+    public IActionResult Delete(int responseId, int questionId)
     {
-      UserResponse.Delete(id);
-      return RedirectToAction("Index");
+      var thisResponse = UserResponse.GetDetails(responseId, questionId);
+      return View(thisResponse);
     }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int responseId, int questionId)
+    {
+      UserResponse.Delete(responseId, questionId);
+      return RedirectToAction("Details", "Question", new {id = questionId});
+    }
+
+    //  public ActionResult Delete(int id)
+    // {
+    //   var thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
+    //   return View(thisClient);
+    // }
+
+    // [HttpPost, ActionName("Delete")]
+    // public ActionResult DeleteConfirmed(int id)
+    // {
+    //   var thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
+    //   _db.Clients.Remove(thisClient);
+    //   _db.SaveChanges();
+    //   return RedirectToAction("Index", "Stylists");
+    // }
 
     public IActionResult Random()
     {

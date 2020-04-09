@@ -2,6 +2,7 @@
   Layout = "_Layout";
 }
 
+@using AudionClient.Models;
 @model AudionClient.Models.Question
 
 <h2>Question Details</h2>
@@ -19,10 +20,7 @@ else
   @foreach(var join in Model.Responses)
   {
     <li>@join.Text</li>
-    @using (Html.BeginForm("DeleteResponse", "Questions"))
-    {
-      <input type="submit" value="Delete"/>
-    }
+    <p>@Html.ActionLink("Delete Response", "Delete", "Responses")</p>
   }
   </ul>
 }
