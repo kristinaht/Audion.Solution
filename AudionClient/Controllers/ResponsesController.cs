@@ -37,14 +37,14 @@ namespace AudionClient.Controllers
 
     public IActionResult Details(int questionId, int responseId)
     {
-      ViewBag.questionId = questionId;
-      var thisResponse = UserResponse.GetDetails(questionId, responseId);
+      // ViewBag.questionId = questionId;
+      var thisResponse = UserResponse.GetDetails( responseId);
       return View(thisResponse);
     }    
     [HttpPost]
     public IActionResult Details(int responseId, int questionId, UserResponse response)
     {
-      response.ResponseId = responseId;
+      
       UserResponse.Put(responseId, questionId, response);
       return RedirectToAction("Details", responseId);
     }

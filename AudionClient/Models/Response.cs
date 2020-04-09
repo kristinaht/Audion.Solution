@@ -40,9 +40,9 @@ namespace AudionClient.Models
       return response;
     }
 
-    public static UserResponse GetDetails(int responseId, int questionId )
+    public static UserResponse GetDetails(int responseId )
     {
-      var apiCallTask = ApiHelper.GetResponse(responseId, questionId);
+      var apiCallTask = ApiHelper.GetResponse(responseId);
       var result = apiCallTask.Result;
 
       JObject jsonResponse =JsonConvert.DeserializeObject<JObject>(result);
@@ -60,7 +60,7 @@ namespace AudionClient.Models
     public static void Put(int responseId, int questionId, UserResponse response)
     {
       string jsonResponse = JsonConvert.SerializeObject(response);
-      var apiCallTask = ApiHelper.PutResponse(questionId, response.ResponseId, jsonResponse);
+      var apiCallTask = ApiHelper.PutResponse(questionId, responseId, jsonResponse);
     }
 
     public static void Delete(int responseId)

@@ -20,7 +20,7 @@ else
   @foreach(UserResponse response in Model.Responses)
   {
     <li>@response.Text</li>
-    @* <h4> @Html.ActionLink($"{@response.Text}", "Details", "Responses", new { questionId = Model.QuestionId, responseId = response.ResponseId})</h4> *@
+    <h4> Details: @Html.ActionLink($"{@response.Text}", "Details", "Responses", new { questionId = Model.QuestionId, responseId = response.ResponseId})</h4>
     <p>@Html.ActionLink("Delete Response", "Delete", "Responses", new { responseId = response.ResponseId, questionId = Model.QuestionId })</p>
   }
   </ul>

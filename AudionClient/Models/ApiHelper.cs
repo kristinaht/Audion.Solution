@@ -20,10 +20,10 @@ namespace AudionClient.Models
       return response.Content;
     }
 
-    public static async Task<string> GetResponse( int questionId, int responseId)
+    public static async Task<string> GetResponse( int responseId)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
-      RestRequest request = new RestRequest($"questions/{questionId}/responses/{responseId}", Method.GET);
+      RestRequest request = new RestRequest($"responses/{responseId}", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
