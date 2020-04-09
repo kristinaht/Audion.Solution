@@ -6,7 +6,7 @@
 
 ## Description
 
-_This API allows users to GET, POST, PUT, and DELETE audio responses to random questions._
+_This custom API allows users to GET, POST, PUT, and DELETE audio responses to random questions. This MVC works together with the API to allow users to access questoins and answer them, as well as view the responses of others, to connect people and promote communication_
 
 ## Endpoint Documentation:
 
@@ -25,11 +25,10 @@ http://localhost:5004/
 * A user can edit (PUT) their login information.
 * A user is able to replace (PUT) an existing text response that they created in the database. 
 * A user is able to delete (DELETE) an existing text response that they created in the database.
-* A user is able to view details for a specific response or  based on user input.
-* A user can create (POST) a new question and add it to the database.
-* An admin can edit (PUT) any information connected to a user.
-* An admin can delete (DELETE) any post in the database.
-* STRETCH GOAL A user is able to filter their search by various query parameters, including: business name, business manager, the year the business joined, the registered phone number ant location.
+* A user is able to view (GET) details for a specific response based on user input.
+* A user must create an account and sign in to add a response to a question.
+* A user can delete (DELETE) a post in the database.
+* STRETCH GOAL A user is able to filter their search by various query parameters
 
 ## Setup/Installation Requirements
 
@@ -86,7 +85,7 @@ _Confirm that you have navigated to the Audion.Solution directory (e.g., by ente
 
 
 ## Run this API application in another Terminal or PowerShell window
-_Run this API by entering the following command in Terminal (macOS) or PowerShell (Windows) at the root of the AudionApi directory:_
+_Run the AudionAPI file by entering the following command in Terminal (macOS) or PowerShell (Windows) at the root of the AudionApi directory:_
   * ``cd AudionApi ``
   * ``dotnet run`` or ``dotnet watch run``
 

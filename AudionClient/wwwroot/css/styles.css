@@ -2,15 +2,6 @@
   margin-bottom: 20px;
 }
 
-.card {
-  margin: 0 auto; 
-  float: none; 
-  margin-bottom: 10px; 
-  width: 500px;
-  /* text-align: center; */
-  padding: 30px;
-}
-
 span:before{
   content:" "; 
   display:inline-block; 
@@ -25,9 +16,9 @@ span:before{
 body {
   background-color: rgb(157, 209, 187);
   background-image: linear-gradient(to bottom left, rgba(157, 209, 187,1), rgba(199, 227, 206,1) 50% );
-  /* background-color: rgb(157, 209, 187);
-  background-image: linear-gradient(90deg, rgba(157, 209, 187,1) 0%, rgba(199, 227, 206,1) 50%, rgba(252,176,69,1) 100%); */
+  /* background-image: url('../img/quesis.jpg');  */
 }
+
 
 
 h1, h2, h3 {
@@ -46,12 +37,6 @@ h1 {
   /* color: #8cbcd0; */
 
 }
-
-
-
-
-
-
 
 .text {
   display: block;
@@ -82,6 +67,11 @@ form {
   margin: 0 auto; 
   float: none; 
   margin-bottom: 10px; 
-  /* width: 700px; */
   padding: 30px;
+}
+
+#splashImg {
+  background-image: url('../img/quesis.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }

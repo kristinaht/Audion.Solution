@@ -2,6 +2,9 @@
     ViewData["Title"] = "Home Page";
 }
 
+<body id="splashImg">
+@* <img src='~/img/quesis.jpg'/> *@
+
 <div class="text-center">
     <h1 class="display-4">Welcome To QUESIS</h1>
     <br>
@@ -11,19 +14,21 @@
   Layout = "_Layout";
 }
 
-
-<div class="box"> 
+<div class="row">
+<div class="col-md-6"></div>
+<div class="col-md-6">
+<div class="card" id="mainBox"> 
 @Html.ActionLink("See Today's Question", "Index", "Questions", null, new { @class="btn btn-large homepage todayq"})
 <br>
 <br>
 @Html.ActionLink("Login to Your Account", "Login", "Account",null, new { @class="btn btn-large homepage"})
 <br>
 @Html.ActionLink("Create an account", "Register", "Account", null, new { @class="btn btn-large homepage"} )
-
+</div>
 
 </div>
 </div>
-
+</body> 
  @* for testing *@
 @* <p>@Html.ActionLink("See all responses", "Index", "Responses")</p> *@
 

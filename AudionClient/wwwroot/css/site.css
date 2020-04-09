@@ -5,7 +5,18 @@ a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+
 }
+
+
+a.navbar-brand :hover {
+  background-color: gray;
+}
+
+.home-header {
+  background-color:  #5c7681;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -55,24 +66,33 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+
 @keyframes example {
   from {background-color:rgba(255, 255, 255, 0.404);}
   to {background-color:  rgb(157, 209, 187);}
   /* to {background-color:  rgb(117, 158, 160);} */
 }
 
-.box {
+.box, #question-box , #response-form {
   /* background-color: rgba(255, 255, 255, 0.404); */
   background-color:  rgb(157, 209, 187, 0.3);
-  margin: 30px;
+  margin: 50px;
   margin-left: 200px;
   margin-right: 200px;
-  padding: 10px;
+  padding: 50px;
   padding-top: 30px;
   border-radius: 25px;
   font-family: 'Roboto', sans-serif;
   animation-name: example;
-  animation-duration: 10s;
+  animation-duration: 15s;
+}
+
+#mainBox {
+  background-color:  rgb(157, 209, 187, 0.3);
+  font-family: 'Roboto', sans-serif;
+  width: fit-content;
+  border-radius: 20px;
+
 }
 
 a {

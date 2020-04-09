@@ -5,75 +5,78 @@
 @using AudionClient.Models
 @model AudionClient.Models.UserResponse
 
+<div id="response-form"> 
+  <h1>Add a new Response</h1>
+  @* questionId = @ViewBag.questionId *@
+  @using (Html.BeginForm())
+  {
+      
+      <input type="hidden" name="questionId" value="@ViewBag.questionId">
+      @Html.HiddenFor(model => model.Timestamp, new { @Value=System.DateTime.Now })
+      @* @Html.HiddenFor(questionId = @Question.questionId)   *@
+      
+      @* @Html.LabelFor(model => model.Text) *@
+      @* <label>Response</label> *@
+      @Html.TextAreaFor(model => model.Text, new {@class = "text"})
+      <br>
+    <div class="row">
+      <div class="col-md-">
+      @Html.LabelFor(model => model.Age, new { @class="label"})
+      <br>
+      @Html.RadioButtonFor(model => model.Age, 1)
+      <label>Under 25</label>
+      <br>
+      @Html.RadioButtonFor(model => model.Age, 2)
+      <label>Between 25 and 50</label>
+      <br>
+      @Html.RadioButtonFor(model => model.Age, 3)
+      <label>Over 50</label>
+      </div>
 
-<h1>Add a new Response</h1>
-@* questionId = @ViewBag.questionId *@
-@using (Html.BeginForm())
-{
+      <div class="col-md-2">
+      @Html.LabelFor(model => model.Gender, new { @class="label" })
+      @Html.TextBoxFor(model => model.Gender, new { @class = "form-control"})
+      </div>
+
+      <div class="col-md-3">
+      @Html.LabelFor(model => model.Region, new { @class="label" })
+      <br>
+      @* @Html.TextBoxFor(model => model.Region, new { @value="Southeast"}) *@
+      @* @Html.LabelFor(model => model.Region, "Northwest") *@
+      @Html.RadioButtonFor(model => model.Region, "Northwest")
+      <label>Northwest</label>
+      <br>
+      @Html.RadioButtonFor(model => model.Region, "NorthEast")
+      <label>Northeast</label>
+      <br>
+      @Html.RadioButtonFor(model => model.Region, "Southwest")
+      <label>Southwest</label>
+      <br>
+      @Html.RadioButtonFor(model => model.Region, "Southeast")
+      <label>Southeast</label>
+      </div>
+      
+      <div class="col-md-2">
+      @Html.LabelFor(model => model.Ethnicity, new { @class="label"})
+      @Html.TextBoxFor(model => model.Ethnicity, new { @class = "form-control"})
+      </div>
+
+      <div class="col-md-2">
+      @Html.LabelFor(model => model.Parent, new { @class="label" })
+      <br>
+      @Html.RadioButtonFor(model => model.Parent,"Yes", true)
+      <label for="yes">Yes</label>
+      <br>
+      @Html.RadioButtonFor(model => model.Parent,"No", false)
+      <label for="no">No</label>
+      </div>
+    </div>
+
     
-    <input type="hidden" name="questionId" value="@ViewBag.questionId">
-    @Html.HiddenFor(model => model.Timestamp, new { @Value=System.DateTime.Now })
-    @* @Html.HiddenFor(questionId = @Question.questionId)   *@
+      <input type="submit" value="Add" class="btn btn-block" />
+
     
-    @* @Html.LabelFor(model => model.Text) *@
-    @* <label>Response</label> *@
-    @Html.TextAreaFor(model => model.Text, new {@class = "text"})
-    <br>
-  <div class="row">
-    <div class="col-md-2">
-    @Html.LabelFor(model => model.Age, new { @class="label"})
-    <br>
-    @Html.RadioButtonFor(model => model.Age, 1)
-    <label>Under 25</label>
-    <br>
-    @Html.RadioButtonFor(model => model.Age, 2)
-    <label>Between 25 and 50</label>
-    <br>
-    @Html.RadioButtonFor(model => model.Age, 3)
-    <label>Over 50</label>
-    </div>
-
-    <div class="col-md-2">
-    @Html.LabelFor(model => model.Gender, new { @class="label" })
-    @Html.TextBoxFor(model => model.Gender, new { @class = "form-control"})
-    </div>
-
-    <div class="col-md-3">
-    @Html.LabelFor(model => model.Region, new { @class="label" })
-    <br>
-    @* @Html.TextBoxFor(model => model.Region, new { @value="Southeast"}) *@
-    @* @Html.LabelFor(model => model.Region, "Northwest") *@
-    @Html.RadioButtonFor(model => model.Region, "Northwest")
-    <label>Northwest</label>
-    <br>
-    @Html.RadioButtonFor(model => model.Region, "NorthEast")
-    <label>Northeast</label>
-    <br>
-    @Html.RadioButtonFor(model => model.Region, "Southwest")
-    <label>Southwest</label>
-    <br>
-    @Html.RadioButtonFor(model => model.Region, "Southeast")
-    <label>Southeast</label>
-    </div>
-    
-    <div class="col-md-3">
-    @Html.LabelFor(model => model.Ethnicity, new { @class="label"})
-    @Html.TextBoxFor(model => model.Ethnicity, new { @class = "form-control"})
-    </div>
-
-    <div class="col-md-2">
-    @Html.LabelFor(model => model.Parent, new { @class="label" })
-    <label for="yes">Yes</label>
-    @Html.RadioButtonFor(model => model.Parent,"Yes", true)
-    <label for="no">No</label>
-    @Html.RadioButtonFor(model => model.Parent,"No", false)
-    </div>
-  </div>
-
-
-    <input type="submit" value="Add" , new {@class="btn btn-danger"} />
-
-   
-}
+  }
+</div>  
 @* <p>@Html.ActionLink("Show all Questions", "Index")</p> *@
 
