@@ -23,8 +23,9 @@ namespace AudionClient.Controllers
       UserResponse.PostResponse(questionId, response);
       return RedirectToAction("Index");
     }
-     public IActionResult Create()
+    public IActionResult Create(int questionId)
     {
+      ViewBag.questionId = questionId;
       return View();
     }
     [HttpPost]
