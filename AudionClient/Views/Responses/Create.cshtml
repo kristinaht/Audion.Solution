@@ -21,7 +21,7 @@ questionId = @ViewBag.questionId
     <br>
   <div class="row">
     <div class="col-md-2">
-    @Html.LabelFor(model => model.Age)
+    @Html.LabelFor(model => model.Age, new { @class="label"})
     <br>
     <label>Under 25</label>
     @Html.RadioButtonFor(model => model.Age, 1)
@@ -34,12 +34,12 @@ questionId = @ViewBag.questionId
     </div>
 
     <div class="col-md-2">
-    @Html.LabelFor(model => model.Gender)
+    @Html.LabelFor(model => model.Gender, new { @class="label" })
     @Html.TextBoxFor(model => model.Gender)
     </div>
 
     <div class="col-md-3">
-    @Html.LabelFor(model => model.Region)
+    @Html.LabelFor(model => model.Region, new { @class="label" })
     <br>
     @* @Html.TextBoxFor(model => model.Region, new { @value="Southeast"}) *@
     @* @Html.LabelFor(model => model.Region, "Northwest") *@
@@ -57,12 +57,12 @@ questionId = @ViewBag.questionId
     </div>
     
     <div class="col-md-3">
-    @Html.LabelFor(model => model.Ethnicity)
+    @Html.LabelFor(model => model.Ethnicity, new { @class="label"})
     @Html.TextBoxFor(model => model.Ethnicity)
     </div>
 
     <div class="col-md-2">
-    @Html.LabelFor(model => model.Parent)
+    @Html.LabelFor(model => model.Parent, new { @class="label" })
     <label for="yes">Yes</label>
     @Html.RadioButtonFor(model => model.Parent,"Yes", true)
     <label for="no">No</label>

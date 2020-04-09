@@ -55,4 +55,32 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+.box {
+  background-color: rgba(255, 255, 255, 0.404);
+  margin: 50px;
+  margin-left: 150px;
+  margin-right: 150px;
+  padding: 20px;
+  padding-top: 40px;
+  border-radius: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  display: inline-block;
+  padding: .7em;
+  line-height: 0;
+  margin-bottom: 2em;
+}
+
+.btn {
+  border: 3px solid ivory;
+  border-radius: 15px;
+  background-image: radial-gradient(rgb(138, 137, 137), rgb(73, 140, 172));
+  color: ivory;
+  margin: 25px;
+  font-size: 140%;
+}
+
+
 
