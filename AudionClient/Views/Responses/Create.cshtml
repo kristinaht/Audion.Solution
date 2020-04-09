@@ -2,19 +2,24 @@
   Layout = "_Layout";
 }
 @using System
+@using AudionClient.Models
 @model AudionClient.Models.UserResponse
 
-<h4>Add a new Response</h4>
 
+<h4>Add a new Response</h4>
+questionId = @ViewBag.questionId
 @using (Html.BeginForm())
 {
-  <div class ="jumbotron">
+    
+    <input type="hidden" name="questionId" value="@ViewBag.questionId">
     @Html.HiddenFor(model => model.Timestamp, new { @Value=System.DateTime.Now })
+    @* @Html.HiddenFor(@Question.questionId)   *@
     
     @* @Html.LabelFor(model => model.Text) *@
-    <label>Response</label>
+    @* <label>Response</label> *@
     @Html.TextAreaFor(model => model.Text, new {@class = "text"})
-    </div>
+    <br>
+  
 
     @Html.LabelFor(model => model.Age)
     <label>Under 25</label>
@@ -49,7 +54,7 @@
     <label for="no">No</label>
     @Html.RadioButtonFor(model => model.Parent,"No", false)
 
-    @Html.HiddenFor(model => model.QuestionId)
+    
 
 
     <input type="submit" value="Add new Response" class="btn btn-default" />
