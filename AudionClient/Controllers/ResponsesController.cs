@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AudionClient.Controllers
 {
+  [Authorize]
   public class ResponsesController : Controller
   {
     public IActionResult Index()
@@ -23,11 +24,13 @@ namespace AudionClient.Controllers
       UserResponse.PostResponse(questionId, response);
       return RedirectToAction("Index");
     }
+
     public IActionResult Create(int questionId)
     {
       ViewBag.questionId = questionId;
       return View();
     }
+
     [HttpPost]
     public IActionResult Create(int questionId, UserResponse response)
     {
@@ -41,29 +44,24 @@ namespace AudionClient.Controllers
       var thisResponse = UserResponse.GetDetails( responseId);
       return View(thisResponse);
     }    
+
     [HttpPost]
     public IActionResult Details(int responseId, int questionId, UserResponse response)
     {
-      
       UserResponse.Put(responseId, questionId, response);
       return RedirectToAction("Details", responseId);
     }
 
-   
     public IActionResult Delete(int responseId, int questionId)
     {
       UserResponse.Delete(responseId);
       return RedirectToAction("Details", "Questions", new {id = questionId});
     }
 
-   
-
     public IActionResult Random()
     {
       var response = UserResponse.GetRandom();
       return View(response);
     }
-    
-
   }
 }

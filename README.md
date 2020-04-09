@@ -1,4 +1,4 @@
-# Audion API Application
+# Quesis API Application
 
 #### _API for interacting with an MVC_
 
@@ -19,15 +19,14 @@ http://localhost:5004/
 
 
 ## Specification user stories:
-* A user is able to have a random audio file returned to them to listen to (GET) from all the files in the database.
+* A user is able to have a random text resonse returned to them to read to (GET) from all the files in the database.
 * A user is able to see the daily question (GET) returned from the database.
-* A user is able to create (POST) a new audio response to the daily question and add it to the database.
+* A user is able to create (POST) a new text response to the daily question and add it to the database.
 * A user can edit (PUT) their login information.
-* A user is able to replace (PUT) an existing audio response that they created in the database. 
-* A user is able to delete (DELETE) an existing audio response that they created in the database.
-* An admin is able to view details for a specific user or audiofile, based on UserId.
-* Only an admin can create (POST) a new question and add it to the database.
-* An admin can edit (PUT) a question in the database.
+* A user is able to replace (PUT) an existing text response that they created in the database. 
+* A user is able to delete (DELETE) an existing text response that they created in the database.
+* A user is able to view details for a specific response or  based on user input.
+* A user can create (POST) a new question and add it to the database.
 * An admin can edit (PUT) any information connected to a user.
 * An admin can delete (DELETE) any post in the database.
 * STRETCH GOAL A user is able to filter their search by various query parameters, including: business name, business manager, the year the business joined, the registered phone number ant location.

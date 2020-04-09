@@ -7,7 +7,7 @@
 
 
 <h1>Add a new Response</h1>
-questionId = @ViewBag.questionId
+@* questionId = @ViewBag.questionId *@
 @using (Html.BeginForm())
 {
     
@@ -23,19 +23,19 @@ questionId = @ViewBag.questionId
     <div class="col-md-2">
     @Html.LabelFor(model => model.Age, new { @class="label"})
     <br>
-    <label>Under 25</label>
     @Html.RadioButtonFor(model => model.Age, 1)
+    <label>Under 25</label>
     <br>
-    <label>Between 25 and 50</label>
     @Html.RadioButtonFor(model => model.Age, 2)
+    <label>Between 25 and 50</label>
     <br>
-    <label>Over 50</label>
     @Html.RadioButtonFor(model => model.Age, 3)
+    <label>Over 50</label>
     </div>
 
     <div class="col-md-2">
     @Html.LabelFor(model => model.Gender, new { @class="label" })
-    @Html.TextBoxFor(model => model.Gender)
+    @Html.TextBoxFor(model => model.Gender, new { @class = "form-control"})
     </div>
 
     <div class="col-md-3">
@@ -43,22 +43,22 @@ questionId = @ViewBag.questionId
     <br>
     @* @Html.TextBoxFor(model => model.Region, new { @value="Southeast"}) *@
     @* @Html.LabelFor(model => model.Region, "Northwest") *@
-    <label>Northwest</label>
     @Html.RadioButtonFor(model => model.Region, "Northwest")
+    <label>Northwest</label>
     <br>
-    <label>Northeast</label>
     @Html.RadioButtonFor(model => model.Region, "NorthEast")
+    <label>Northeast</label>
     <br>
-    <label>Southwest</label>
     @Html.RadioButtonFor(model => model.Region, "Southwest")
+    <label>Southwest</label>
     <br>
-    <label>Southeast</label>
     @Html.RadioButtonFor(model => model.Region, "Southeast")
+    <label>Southeast</label>
     </div>
     
     <div class="col-md-3">
     @Html.LabelFor(model => model.Ethnicity, new { @class="label"})
-    @Html.TextBoxFor(model => model.Ethnicity)
+    @Html.TextBoxFor(model => model.Ethnicity, new { @class = "form-control"})
     </div>
 
     <div class="col-md-2">
@@ -71,7 +71,9 @@ questionId = @ViewBag.questionId
   </div>
 
 
-    <input type="submit" value="Add new Response" class="btn btn-default" />
+    <input type="submit" value="Add" , new {@class="btn btn-danger"} />
+
+   
 }
 @* <p>@Html.ActionLink("Show all Questions", "Index")</p> *@
 

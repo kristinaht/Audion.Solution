@@ -8,19 +8,25 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AudionClient.Controllers
 {
+  [Authorize]
   public class QuestionsController : Controller
   {
-    [Authorize]
+    
     [AllowAnonymous]
-     public IActionResult Index()
+    public IActionResult Index()
+    {
+      // var allquestions = Question.GetAll();
+      // return View(allquestions);
+      var thisQuestion = Question.GetRandom();
+      return View(thisQuestion);
+    }
+
+    public IActionResult IndexQuestions()
     {
       var allquestions = Question.GetAll();
       return View(allquestions);
-      // var thisQuestion = Question.GetRandom();
-      // return View(thisQuestion);
     }
-
-    //[Authorize(Roles = Role.Admin)]
+    
     [HttpPost]
     public IActionResult Index(Question question)
     {
@@ -28,14 +34,13 @@ namespace AudionClient.Controllers
       return RedirectToAction("Index");
     }
 
+    [AllowAnonymous]
     public IActionResult Details(int id)
     {
       var question = Question.GetDetails(id);
       return View(question);
     }
 
-
-    //[Authorize(Roles = Role.Admin)]
     public IActionResult Edit(int id)
     {
       var question = Question.GetDetails(id);
@@ -58,13 +63,13 @@ namespace AudionClient.Controllers
       return RedirectToAction("Details", id);
     }
 
-    //[Authorize(Roles = Role.Admin)]
     public IActionResult Delete(int id)
     {
       Question.Delete(id);
       return RedirectToAction("Index");
     }
 
+    [AllowAnonymous]
     public IActionResult Search(string searchStr)
     {
       var searchResults = Question.Search(searchStr);

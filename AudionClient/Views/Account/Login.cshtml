@@ -9,15 +9,14 @@
 <br>
 <div class="card">
   <br>
-  <h4 class="text-center">Audion</h4>
+  <h4 class="text-center">Quesis</h4>
   <br>
   <br>
   @using (Html.BeginForm())
   {
     @Html.TextBoxFor(m => m.Email, new {@class="form-control", placeholder="Email"})
     @Html.PasswordFor(m => m.Password,  new {@class="form-control", placeholder="Password"})
-    <input type="submit" value="Log in" class="btn btn-outline-success form-control" />
+    <input type="submit" value="Log in" class="btn btn-outline-success form-control"/>
   }
-  <br>
-  <p class="text-center">Don't have an account? <span>@Html.ActionLink("Sing up", "Register")</span></p>
+  <p>Don't have an account? <span>@Html.ActionLink("Sign up", "Register")</span></p>
 </div>

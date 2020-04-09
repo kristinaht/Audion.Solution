@@ -36,8 +36,6 @@ namespace AudionApi.Controllers
         query = query.Where(entry => entry.Text.Contains(text));
       }
 
-
-
       if (age != 0)
       {
         query = query.Where(entry => entry.Age == age);
@@ -57,7 +55,6 @@ namespace AudionApi.Controllers
       {
         query = query.Where(entry => entry.Ethnicity.Contains(ethnicity));
       }
-
 
       return query.ToList();
     }

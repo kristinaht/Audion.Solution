@@ -5,27 +5,32 @@
 @using AudionClient.Models;
 @model AudionClient.Models.Question
 
-<h2>Question Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.Text): @Html.DisplayFor(model => model.Text)</h3>
+@* <h2>Responses of Today's Question</h2>
+<hr /> *@
 
-@if(@Model.Responses.Count == 0)
-{
-  <p>This Question does not have any Responses</p>
-}
-else
-{
-  <h4>This Question's Responses:</h4>
-  <ul>
-  @foreach(UserResponse response in Model.Responses)
-  {
-    <li>@response.Text</li>
-    <h4> Details: @Html.ActionLink($"{@response.Text}", "Details", "Responses", new { questionId = Model.QuestionId, responseId = response.ResponseId})</h4>
-    <p>@Html.ActionLink("Delete Response", "Delete", "Responses", new { responseId = response.ResponseId, questionId = Model.QuestionId })</p>
-  }
-  </ul>
-}
-<p>@Html.ActionLink("Add your response", "Create", "Responses", new { questionId = Model.QuestionId })</p>
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Question", "Edit", new { id = Model.QuestionId })</p>
-<p>@Html.ActionLink("Delete Question", "Delete", new { id = Model.QuestionId })</p>
+<div class="card" style="width: 800px;">
+  <div class="card-header">
+    <h3>@Html.DisplayFor(model => model.Text)</h3>
+  </div>
+  <div class="card-body">
+    @if(@Model.Responses.Count == 0)
+    {
+      <h5>This Question does not have any Responses</h5>
+    }
+    else
+    {
+      <ul>
+      @foreach(UserResponse response in Model.Responses)
+      {
+        <li>@Html.ActionLink($"{@response.Text}", "Details", "Responses", new { questionId = Model.QuestionId, responseId = response.ResponseId})</li>
+        @* <p>@Html.ActionLink("Delete Response", "Delete", "Responses", new { responseId = response.ResponseId, questionId = Model.QuestionId })</p> *@
+      }
+      </ul>
+    }
+  <div>
+  <hr>
+  <p>@Html.ActionLink("Add your response", "Create", "Responses", new { questionId = Model.QuestionId }, new {@class="btn btn-danger"})</p>
+  @* @Html.ActionLink("Back to list", "Index", null, new {@class="btn btn-danger"}) *@
+  @* @Html.ActionLink("Edit Question", "Edit", new { id = Model.QuestionId }, new {@class="btn btn-danger"}) *@
+  @* @Html.ActionLink("Delete Question", "Delete", new { id = Model.QuestionId })</p> *@
+</div>
